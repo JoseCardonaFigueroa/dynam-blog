@@ -175,7 +175,7 @@ ul {
 	#main-container #main-sections-container section div.full{
 		float: none;
 		position: absolute;
-		margin: 0 45% 0 45% ;
+		margin: 0 45% 15px 45% ;
 		bottom: -65px;
 	}
 }
