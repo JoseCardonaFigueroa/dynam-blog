@@ -210,7 +210,7 @@ ul {
 	#main-container #main-sections-container section article img{
 		clear: both;
 		position: absolute;
-		display: inline-block;
+		/*display: inline-block;*/
 		top: 0;
 		width: 100%;
 		height: 125px;
@@ -219,8 +219,13 @@ ul {
 
 #main-container #main-sections-container section article p{
 	margin: 10px;
-	padding-top: 125px;
 	font-size: 15px;
 	letter-spacing: 1px;
 	text-align: justify;
+}
+
+@media (max-width:375px) {
+	#main-container #main-sections-container section article p{
+		padding-top: 125px;
+	}
 }
