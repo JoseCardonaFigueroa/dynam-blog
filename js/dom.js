@@ -13,8 +13,6 @@
   app.init();
 
   function init() {
-    //No los está guardando en la variable que corresponde a su objeto
-    // this.dataApi();
     this.addSections();
   }
 
@@ -43,7 +41,6 @@
         newArticle.innerHTML += "<p>"+ item.body+"</p>";
         console.log(newArticle);
       }
-      // Se envían los datos al html
       this.DOMapi.addItems(this.sections, addArticle);
     };
     function addArticleToDOM(obj) {
@@ -91,7 +88,6 @@
 
       xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-          // console.log('éxito');
           callBack(JSON.parse(xmlhttp.responseText));
         }
       }
