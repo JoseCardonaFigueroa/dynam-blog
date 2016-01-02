@@ -13,52 +13,46 @@
   app.init();
 
   function init() {
-    this.menu = this.dataApi.getData(function (parsedJSON) {
-      return parsedJSON;
-    });
-    this.sections = this.dataApi.getData(function (parsedJSON) {
-      return parsedJSON;
-    });
-    console.log(this.menu);
-    console.log(this.sections);
-    console.log('Ejecutando función');
-    // console.log(this.addSections());
-    this.addSections()
+    //No los está guardando en la variable que corresponde a su objeto
+    // this.dataApi();
+    this.addSections();
   }
 
   function addSectionsFunc() {
-    console.log('Ejecutando addSectionsFunc');
 
     function constructSection() {
       console.log('Ejecutando constructSection');
       var container = this.DOMapi.getContainer('main-sections-container');
-      console.log(container);
-      var newSection = document.createElement('section');
-      var newHeader = document.createElement('header');
-      var newMoreBtn = document.createElement('div');
-      var newArticle = document.createElement('article');
-
-      newMoreBtn.className = "full";
-      newMoreBtn.innerHTML += "<span> more </span>";
-
-      newSection.appendChild(newHeader);
-      newSection.appendChild(newMoreBtn);
-      newSection.appendChild(newArticle);
 
       function addArticle(item) {
+        var newSection = document.createElement('section');
+        var newHeader = document.createElement('header');
+        var newMoreBtn = document.createElement('div');
+        var newArticle = document.createElement('article');
+
+        newMoreBtn.className = "full";
+        newMoreBtn.innerHTML += "<span> more </span>";
+
+        newSection.appendChild(newHeader);
+        newSection.appendChild(newMoreBtn);
+        newSection.appendChild(newArticle);
+        container.appendChild(newSection);
+
         newArticle.innerHTML += "<h2>" + item.title + "</h2>";
         newArticle.innerHTML += "<img src='" + item.img + "'>";
         newArticle.innerHTML += "<p>"+ item.body+"</p>";
+        console.log(newArticle);
       }
       // Se envían los datos al html
-      this.DOMapi.addItems(this.menu, addArticle);
+      this.DOMapi.addItems(this.sections, addArticle);
     };
     function addArticleToDOM(obj) {
-      this.sections = obj.data.sections;
-      this.menu = obj.data.menu;
+      this.sections = obj.sections;
+      this.menu = obj.menu;
+      console.log(this);
       constructSection.call(this);
     }
-    this.DataApi.getData(addArticleToDOM.bind(this));
+    this.dataApi.getData(addArticleToDOM.bind(this));
   };
 
   function domApiFunc() {
@@ -94,11 +88,13 @@
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", URLs.get, true);
       xmlhttp.send(null);
+
       xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          // console.log('éxito');
           callBack(JSON.parse(xmlhttp.responseText));
-        };
-      };
+        }
+      }
     }
     function sendData() {
       //code to send data
