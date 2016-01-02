@@ -52,13 +52,28 @@ ul {
 @media(max-width: 375px){
 	#main-header{
 		position: fixed;
-		z-index: 9999;
+		z-index: 9998;
 	}
 
 	#main-header a{
 		display: none;
 	}
 }
+
+#main-header #submenu-container{
+	display: none;
+}
+
+@media (max-width: 375px) {
+	#main-header #submenu-container{
+		display: block;
+		width: 60px;
+		height: 100%;
+		float: right;
+		background-color: black;
+	}
+}
+
 @media (max-width: 375px) {
 	#main-container {
 		clear: both;
