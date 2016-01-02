@@ -6,7 +6,6 @@
 
   menuMobileBtn.addEventListener("touchstart", function (event) {
     target = event.target;
-    console.log(target.classList.length);
 
     if (target.classList.length === 0) {
       bodyTag.classList.add('no-scroll');
