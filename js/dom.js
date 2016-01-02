@@ -38,7 +38,7 @@
         newSection.appendChild(newArticle);
         container.appendChild(newSection);
 
-        newArticle.innerHTML += "<h2>" + item.title + "</h2>";
+        newHeader.innerHTML += "<h2>" + item.title + "</h2>";
         newArticle.innerHTML += "<img src='" + item.img + "'>";
         newArticle.innerHTML += "<p>"+ item.body+"</p>";
         console.log(newArticle);
