@@ -1,0 +1,24 @@
+{
+  "name": "dynamic-blog",
+  "version": "0.0.1",
+  "description": "Example of loading data from data using xmlHTTP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseCardonaFigueroa/dynam-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "ams",
+    "softtek"
+  ],
+  "author": "José Cardona Figueroa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoseCardonaFigueroa/dynam-blog/issues"
+  },
+  "homepage": "https://github.com/JoseCardonaFigueroa/dynam-blog#readme"
+}
