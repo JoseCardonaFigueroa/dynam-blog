@@ -1,5 +1,5 @@
 html {
-  /*Paraque se vaya hasta la parte de arriba*/
+  /*Para que se vaya hasta la parte de arriba*/
 	height: 100%;
 }
 
@@ -52,16 +52,16 @@ ul {
 @media(max-width: 375px){
 	#main-header{
 		position: fixed;
+		z-index: 9999;
 	}
 
 	#main-header a{
 		display: none;
-		float: none;
 	}
 }
 @media (max-width: 375px) {
 	#main-container {
-		float: none;
+		clear: both;
 		width: 100%;
 	}
 }
@@ -113,7 +113,9 @@ ul {
 }
 @media (max-width:375px) {
 	#main-container #main-sections-container{
-		float: left;
+		clear: both;
+		padding: 0;
+		margin: 0;
 		width: 100%;
 	}
 }
@@ -126,9 +128,9 @@ ul {
 }
 
 @media (max-width: 375px) {
-	#main-container #main-sections-container #section{
-		width: 100%;
-		min-height: 450px;
+	#main-container #main-sections-container section{
+		margin-top: 90px;
+		z-index: 1;
 		position: relative;
 	}
 }
@@ -146,7 +148,8 @@ ul {
 @media (max-width: 375px) {
 	#main-container #main-sections-container section header{
 		width: 50%;
-		margin: -50px 0 0 25%;
+		max-height: 68px;
+		margin: -68px 0 0 25%;
 	}
 }
 #main-container #main-sections-container section header h2{
@@ -192,14 +195,10 @@ ul {
 
 @media (max-width: 375px) {
 	#main-container #main-sections-container section article img{
-		/*display: none;*/
+		clear: both;
 		position: absolute;
-		float:none;
-		top: 115px;
-		/*left: 9px;
-		padding-top: 90px;
-		padding-left: 40px;*/
-		width: 75%;
+		top: 15px;
+		width: 100%;
 		height: 125px;
 	}
 }
