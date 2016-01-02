@@ -67,10 +67,19 @@ ul {
 @media (max-width: 375px) {
 	#main-header #submenu-container{
 		display: block;
-		width: 60px;
+		width: 40px;
 		height: 100%;
 		float: right;
-		background-color: black;
+		margin-top: 7px;
+		margin-right: 10px;
+	}
+
+	#main-header #submenu-container div{
+		height: 5px;
+		width: 100%;
+		border-radius: 7px;
+		background-color: #009688;
+		margin: 8px 0 8px 0;
 	}
 }
 
