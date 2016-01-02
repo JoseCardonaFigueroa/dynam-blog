@@ -2,19 +2,35 @@
 
   var app = {
     DOMapi: domApiFunc(),
+    dataApi : dataApiFunc(),
     addSections: addSectionsFunc,
     mainContainer: null,
+    menu: null,
+    sections: null,
     init: init
   }
 
   app.init();
 
   function init() {
-    this.addSections();
+    this.menu = this.dataApi.getData(function (parsedJSON) {
+      return parsedJSON;
+    });
+    this.sections = this.dataApi.getData(function (parsedJSON) {
+      return parsedJSON;
+    });
+    console.log(this.menu);
+    console.log(this.sections);
+    console.log('Ejecutando función');
+    // console.log(this.addSections());
+    this.addSections()
   }
 
   function addSectionsFunc() {
+    console.log('Ejecutando addSectionsFunc');
+
     function constructSection() {
+      console.log('Ejecutando constructSection');
       var container = this.DOMapi.getContainer('main-sections-container');
       console.log(container);
       var newSection = document.createElement('section');
@@ -34,17 +50,19 @@
         newArticle.innerHTML += "<img src='" + item.img + "'>";
         newArticle.innerHTML += "<p>"+ item.body+"</p>";
       }
-      function addArticleMenu(obj) {
-        this.sections = obj.data.sections;
-        this.menu = obj.data.menu;
-        constructMenu.call(this);
-      }
       // Se envían los datos al html
       this.DOMapi.addItems(this.menu, addArticle);
     };
+    function addArticleToDOM(obj) {
+      this.sections = obj.data.sections;
+      this.menu = obj.data.menu;
+      constructSection.call(this);
+    }
+    this.DataApi.getData(addArticleToDOM.bind(this));
   };
 
   function domApiFunc() {
+
     function getContainer(id) {
       return document.getElementById(id);
     }
@@ -74,13 +92,13 @@
     };
     function getData(callBack) {
       var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", URLs.get, true);
+      xmlhttp.send(null);
       xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
           callBack(JSON.parse(xmlhttp.responseText));
         };
       };
-      xmlhttp.open("GET", URLs.get, true);
-      xmlhttp.send();
     }
     function sendData() {
       //code to send data
